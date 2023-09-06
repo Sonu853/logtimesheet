@@ -1,0 +1,166 @@
+import React from 'react'
+import {useState} from 'react';
+
+function App() {
+
+  const appStyle = {
+    backgroundColor: '#f0f8ff',
+    width: '100vw',         
+    height: '100vh',        
+    margin: 0,
+    padding: 0,     
+  
+  };
+
+  const redBoxStyle = {
+    backgroundColor: '#3cb371',
+    width: '100vw',   
+    height: '12vh', 
+    margin: 'auto',  
+   
+    marginTop: '10vh',
+    borderRadius: '1vw'
+  };
+
+  const messageStyle = {
+    
+    fontSize: '1em',
+    padding: '1vh 1.5vw'
+  
+  };
+
+  const rectangle = {
+    backgroundColor: '#FFFFFF',
+    width: '100vw',   
+    height: '12vh', 
+    margin: 'auto',  
+    marginTop: '10vh',
+    border: '1px solid #00FFFF'
+  };
+
+  const selectStyle = {
+    width: '20vw',
+    borderRadius: '0.25rem',
+    border: '1px solid #ccc',
+    backgroundColor: '#fff',
+    marginTop:'8%',
+    marginLeft: '2vw', 
+     
+  };
+
+  const rectangle1 = {
+    backgroundColor: '#ffffff',
+    width: '100vw',   
+    margin: 'auto',  
+    marginTop: '10vh',
+    border: '1px solid #00FFFF'
+  };
+
+  const textareaStyle = {
+    width: '40vw',           
+    height: '10vh',           
+    border: '1px solid #ccc',  
+    padding: '10px'    
+  };
+
+  const selectStyle1 = {
+    width: '20vw',          
+    height: '5vh',  
+    fontSize: '16px',        
+    border: '1px solid #ccc'
+   
+  };
+
+  const inputStyle1 = {
+    width: '10vw',          
+    height: '5vh',  
+    fontSize: '16px',        
+    border: '1px solid #ccc'
+   
+  };
+
+  const [selectedProject, setSelectedProject] = useState('');
+
+  const handleProjectChange = (event) => {
+    setSelectedProject(event.target.value);
+  };
+
+  return (
+    <>
+     <div style={appStyle}>
+    <h1 style={{ fontSize: '1.5rem' }}>Log Timesheet</h1>
+    <div>Log Timesheet</div>
+    <div style={redBoxStyle}>
+    <p style={messageStyle}>Please update your timesheet for .Assigned project(s)</p>
+    </div>
+    <div style={rectangle}>
+    <label>
+         
+            <select value={selectedProject} onChange={handleProjectChange}  style={selectStyle}>
+              <option value="">Yesterday</option>
+              <option value="project1">Today</option>
+              <option value="project2">Tomorrow</option>
+             
+            </select>
+          </label>
+    </div>
+    <div style={rectangle1}>
+    <div style={{ display: 'grid', gridTemplateColumns: '3.5fr 5fr 1.5fr'}}>
+        <div >
+          <hr />
+          <h2 style={{ fontSize: '1rem' }}>Projects</h2>
+          <hr />
+        </div>
+
+        <div >
+         <hr/>
+          <h2 style={{ fontSize: '1rem' }}>Description/Reason</h2>
+         <hr/>
+        </div>
+
+        <div >
+          <hr />
+          <h2 style={{ fontSize: '1rem' }}>Total hours</h2>
+          <hr />
+        </div>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '3.5fr 5fr 1.5fr'}}>
+        <div >
+         
+        <div >
+    <label>
+         
+            <select   style={selectStyle1}>
+              <option value="">Yesterday</option>
+              <option value="project1">Today</option>
+              <option value="project2">Tomorrow</option>
+             
+            </select>
+          </label>
+          <div>
+          <label>
+            <input type="checkbox"/>
+           Check if not worked on project
+          </label>
+          </div>
+    </div>
+         
+        </div>
+        <div >
+        <textarea style={textareaStyle}></textarea>
+        </div>
+        <div >
+        <div>
+        <input type="number" id="inputField" style={inputStyle1} 
+        />
+      </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    </>
+  )
+}
+
+export default App
